@@ -1,0 +1,3 @@
+[submodule "xwcWebWallet"]
+	path = xwcWebWallet
+	url = https://github.com/Whitecoin-XWC/xwcWebWallet.git
