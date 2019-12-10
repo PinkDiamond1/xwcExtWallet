@@ -6936,8 +6936,8 @@ XwcPay.prototype = {
 	},
 
 	defaultConfig: {
-		chainId: '2e13ba07b457f2e284dcfcbd3d4a3e4d78a6ed89a61006cdb7fdad6d67ef0b12',
-		network: 'ws://nodeapi.xwclab.org:6090' // 'wss://nodeapi.xwclab.org'
+		chainId: 'ea1ecf2d8a22d5894280aca2327423f42226e0ecf656f4869972c1c83b6f2a63',
+		network: "wss://node.whitecoin.info"
 	},
 
 	postMessageRequest: function (method, data, callbackRegisterMethod, timeout) {
