@@ -31,7 +31,7 @@ var apiInstance;
 const networkList = [
     {
         chainId: 'ea1ecf2d8a22d5894280aca2327423f42226e0ecf656f4869972c1c83b6f2a63', key: 'mainnet', name: "Mainnet",
-        url: "ws://nodeapi.xwclab.org:6090"
+        url: "ws://120.79.93.99:8091"
     },
     // { chainId: '9f3b24c962226c1cb775144e73ba7bb177f9ed0b72fac69cd38764093ab530bd', key: 'testnet', name: "Testnet", url: "ws://47.74.44.110:8090" },
     {
@@ -51,8 +51,8 @@ const networkList = [
 ];
 
 function getNetworkConfig() {
-    network = localSave.getItem("apiPrefix") || 'ws://nodeapi.xwclab.org:6090'; // 'ws://211.159.168.197:6090';
-    chainId = localSave.getItem("chainId") || '2e13ba07b457f2e284dcfcbd3d4a3e4d78a6ed89a61006cdb7fdad6d67ef0b12';
+    network = localSave.getItem("apiPrefix") || 'ws://120.79.93.99:8091'; // 'ws://211.159.168.197:6090';
+    chainId = localSave.getItem("chainId") || 'ea1ecf2d8a22d5894280aca2327423f42226e0ecf656f4869972c1c83b6f2a63';
     return { network: network, chainId: chainId };
 }
 
