@@ -7,14 +7,6 @@ port.onMessage.addListener(function (msg) {
     console.log("msg listened in popup: " + JSON.stringify(msg));
     if (!!msg.unapprovedTxs) {
         processTx(msg.unapprovedTxs);
-        // var length = msg.unapprovedTxs.length
-        // if(msg.unapprovedTxs.length > 0) {
-        //     var tx = msg.unapprovedTxs[length - 1].data
-        //     processTx(tx);
-        // }else{
-        //     console.log("no more unapprovedTxs")
-        // }
-
     }
 });
 
@@ -46,11 +38,17 @@ function processTx(unapprovedTxs) {
         var tx = unapprovedTxs[length - 1].data;
         txTobeProcessed = tx;
         console.log("to address: " + tx.to + ", mount: " + tx.value);
-        
-        if(typeof(window) !== 'undefined' && window.xwcAppState) {
-            var xwcAppState = window.xwcAppState;
-            xwcAppState.pushFlashTx(tx);
-            return;
+
+        if(typeof(window) !== 'undefined') {
+            if (window.xwcAppState) {
+                var xwcAppState = window.xwcAppState;
+                xwcAppState.pushFlashTx(tx);
+                return;
+            }
+
+            if (window.storeUnhandledTxs) {
+                window.storeUnhandledTxs.add(tx);
+            }
         }
 
         var precision = tx.precision || 5; // FIXME: get precision from network
